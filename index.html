@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Picture Renamer</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="container">
         <header>
             <h1>Picture Renamer</h1>
             <p class="subtitle">Upload pictures and rename them with numbers (1, 2, 3...)</p>
         </header>
-        
+
         <div class="content">
             <div class="upload-area">
                 <div class="upload-icon">📁</div>
@@ -22,25 +24,43 @@
                 <label for="fileInput" class="upload-btn">Choose Images</label>
                 <p id="fileCount">No files selected</p>
             </div>
-            
-            <div class="preview-section">
-                <h3 class="preview-title">Preview</h3>
-                <div class="preview-container" id="previewContainer">
-                    <div class="preview-placeholder">Your images will appear here after upload</div>
+
+            <div class="split-section">
+                <div class="preview-column">
+                    <h3 class="section-title">Reorder Images</h3>
+                    <div class="preview-container" id="previewContainer">
+                        <div class="preview-placeholder">Your images will appear here after upload</div>
+                    </div>
+                </div>
+
+                <div class="viewer-column">
+                    <h3 class="section-title">Selected Image View</h3>
+                    <div class="image-viewer" id="imageViewer">
+                        <div class="viewer-placeholder" id="viewerPlaceholder">Double-click an image to view it here
+                        </div>
+                        <img id="viewerImage" class="viewer-img" style="display: none;">
+                    </div>
+
                 </div>
             </div>
-            
+
+            <div class="rename-controls">
+                <input type="text" id="prefixInput" class="prefix-input" placeholder="Enter custom name (optional)">
+            </div>
+
             <div class="actions">
-                <button id="renameBtn" class="action-btn rename-btn" disabled>Rename to Numbers</button>
+                <button id="renameBtn" class="action-btn rename-btn" disabled>Rename</button>
                 <button id="downloadBtn" class="action-btn download-btn" disabled>Download All</button>
             </div>
-            
+
             <div id="status" class="status"></div>
-            
+
             <div class="instructions">
                 <h3>How to Use:</h3>
                 <ol>
                     <li>Click "Choose Images" to select your pictures</li>
+                    <li>Drag and drop images in the left panel to reorder them</li>
+                    <li>Double-click an image to view it in the right panel</li>
                     <li>Click "Rename to Numbers" to rename files as 1.jpg, 2.jpg, etc.</li>
                     <li>Click "Download All" to get a ZIP file with all renamed images</li>
                     <li>Extract the ZIP file to save your organized pictures</li>
@@ -49,7 +69,11 @@
         </div>
     </div>
 
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
